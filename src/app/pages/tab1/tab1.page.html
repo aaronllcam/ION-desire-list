@@ -1,0 +1,31 @@
+
+<ion-header [translucent]="true" color="dark">
+  <ion-toolbar>
+    <ion-title>
+      Pendientes
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content [fullscreen]="true" color="dark">
+  <ion-header collapse="condense" class="ion-no-border">
+    <ion-toolbar color="dark">
+      <ion-title size="large">Pendientes</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+
+  <!-- List of Text Items -->
+  <ion-list color="dark">
+    <ion-item *ngFor="let list of lists" detail color="dark">
+      <ion-label>{{ list.title }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="addList()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

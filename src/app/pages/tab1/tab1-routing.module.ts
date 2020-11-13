@@ -6,7 +6,11 @@ const routes: Routes = [
   {
     path: '',
     component: Tab1Page,
-  }
+  },
+  {
+      path: 'add-list',
+      loadChildren: () => import('../../pages/add-list/add-list.module').then( m => m.AddListPageModule)
+    }
 ];
 
 @NgModule({
