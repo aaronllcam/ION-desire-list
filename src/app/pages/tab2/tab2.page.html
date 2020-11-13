@@ -1,17 +1,19 @@
-<ion-header [translucent]="false" color="dark">
-  <ion-toolbar>
+<ion-header [translucent]="false" color="dark" no-border>
+  <ion-toolbar color="dark" no-border>
     <ion-title>
       Completadass
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+
+<ion-content [fullscreen]="true" no-border color="dark">
+  <ion-header collapse="condense" no-border>
     <ion-toolbar>
       <ion-title size="large">Completadas</ion-title>
     </ion-toolbar>
   </ion-header>
+  
+  <app-lists [finishedPage]="true"></app-lists>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
 </ion-content>

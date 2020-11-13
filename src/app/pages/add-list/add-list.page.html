@@ -5,7 +5,7 @@
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
 
-    <ion-title>Nombre lista</ion-title>
+    <ion-title>{{list.title}}</ion-title>
 
 
 
@@ -16,10 +16,11 @@
   <ion-list color="dark">
     <ion-item color="dark">
       <ion-label>Nuevo item</ion-label>
-      <ion-input type="text" placeholder="Escribe el nuevo item"></ion-input>
+      <ion-input type="text" placeholder="Escribe el nuevo item" [(ngModel)]="inputItem" (keyup.enter)="addItem()">
+      </ion-input>
 
     </ion-item>
-  
+
   </ion-list>
 
   <ion-list>
@@ -31,10 +32,22 @@
       </ion-item>
 
     </ion-list-header>
+    <ion-item-sliding *ngFor="let item of list.items; let idx = index" class="animated fadeInDown">
 
-    <ion-item color="dark">
-      <ion-checkbox slot="start"></ion-checkbox>
-      <ion-label>Recordar comer hoy</ion-label>
-    </ion-item>
+      <ion-item color="dark">
+        <ion-checkbox slot="start" [(ngModel)]="item.complete" (ionChange)="changeCheck(item)"></ion-checkbox>
+        <ion-label>{{ item.desc }}</ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+
+        <ion-item-option (click)="removeItem(idx)" color="danger">
+            <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-item-option>
+
+      </ion-item-options>
+
+    </ion-item-sliding>
+
   </ion-list>
 </ion-content>
